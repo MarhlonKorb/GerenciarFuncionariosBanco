@@ -1,5 +1,4 @@
 package com.company;
-
 import java.util.Scanner;
 
 public class Funcionario {
@@ -12,8 +11,7 @@ public class Funcionario {
     double bonificacao;
     double salarioAnual;
 
-    Funcionario() {
-    }
+    Funcionario() {}
 
     Funcionario(String nFuncionario, String rgFuncionario, String dataInicial, double salario, double bonus) {
         this.nome = nFuncionario;
@@ -21,7 +19,6 @@ public class Funcionario {
         this.dataInicio = dataInicial;
         this.salario = salario;
         this.bonificacao = bonus;
-
     }
 
     void menu(){
@@ -30,6 +27,7 @@ public class Funcionario {
         System.out.println("1 - Informar dados do funcionario:");
         System.out.println("2 - Informar dados do usuário:");
         int escolhido = leitor.nextInt();
+
         if (escolhido == 1){
             lerDadosFuncionario();
         }
@@ -41,7 +39,6 @@ public class Funcionario {
     }
 
     void lerDadosFuncionario() {
-
         nome();
         getRg();
         dataInicio();
