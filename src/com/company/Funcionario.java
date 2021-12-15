@@ -24,8 +24,9 @@ public class Funcionario {
     void menu(){
         System.out.println("---- MENU ----");
         System.out.println("Escolha uma opção");
-        System.out.println("1 - Informar dados do funcionario:");
-        System.out.println("2 - Informar dados do usuário:");
+        System.out.println("1 - Digitar dados do funcionario:");
+        System.out.print("2 - Consultar dados do funcionário:");
+        System.out.print("\n0 - Sair:");
         int escolhido = leitor.nextInt();
 
         if (escolhido == 1){
@@ -34,7 +35,10 @@ public class Funcionario {
         else if (escolhido == 2){
             dadosFuncionario();
         }
-        else{opcaoValida();
+        else if (escolhido == 0){
+            System.out.println("\n----- Programa encerrado -----");
+        }
+        else{opcaoInvalida();
         }
     }
 
@@ -46,19 +50,24 @@ public class Funcionario {
         ganhoAnual();
         ganhoAnualComBonificacao(bonificacao);
         taxaBonus();
+        dadosFuncionario();
 
         leitor.close();
     }
 
     void dadosFuncionario() {
-        System.out.println("Nome do funcionário: " + this.nome);
-        System.out.println("RG do funcionário: " + this.rg);
-        System.out.println("Data de início do funcionário: " + this.dataInicio);
-        System.out.println("Salário do funcionário: " + this.salario);
-        System.out.println("Taxa de bonus do funcionário(%): " + this.bonificacao);
-        System.out.println("Salário do funcionário com bonificação de: " + salarioComBonificacao(this.bonificacao));
-        System.out.println("Projeção do salário anual sem bonificação: " + this.salarioAnual);
-        System.out.println("Projeção do salário anual com bonificação atual: " + ganhoAnualComBonificacao(this.bonificacao));
+        if (this.nome != null){
+        System.out.println("Nome do funcionário: " + this.nome.toLowerCase());}
+        else{
+            System.out.println("Nome: não informado");
+        }
+        System.out.println("RG: " + this.rg);
+        System.out.println("Data de início: " + this.dataInicio);
+        System.out.println("Salário(R$): " + this.salario);
+        System.out.println("Taxa de bonus(%): " + this.bonificacao);
+        System.out.println("Salário com bonificação(R$): " + salarioComBonificacao(this.bonificacao));
+        System.out.println("Projeção do salário anual sem bonificação(R$): " + this.salarioAnual);
+        System.out.println("Projeção do salário anual com bonificação de "+this.bonificacao+"(%): " + ganhoAnualComBonificacao(this.bonificacao));
     }
 
     void nome() {
@@ -87,6 +96,10 @@ public class Funcionario {
     void dataInicio() {
         System.out.println("Digite a data de entrada do funcionario: ");
         dataInicio = leitor.next();
+        if(dataInicio.length() > 10 || dataInicio.length() < 6){
+            dataInicio();
+            System.out.println("Valor inválido para data!");
+        }
     }
 
     void taxaBonus() {
@@ -110,7 +123,7 @@ public class Funcionario {
         return salarioComBonificacao(bonificacao) * 12;
     }
 
-    void opcaoValida(){
+    void opcaoInvalida(){
         System.out.println("Opção inválida!\nSelecione uma opção válida.");
         menu();
     }
