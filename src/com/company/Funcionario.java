@@ -23,10 +23,10 @@ public class Funcionario {
 
     void menu(){
         System.out.println("---- MENU ----");
-        System.out.println("Escolha uma opção");
-        System.out.println("1 - Digitar dados do funcionario:");
-        System.out.print("2 - Consultar dados do funcionário:");
-        System.out.print("\n0 - Sair:");
+        System.out.println("Escolha uma opção:");
+        System.out.println("1 - Digitar dados do funcionario");
+        System.out.print("2 - Consultar dados do funcionário");
+        System.out.print("\n0 - Sair");
         int escolhido = leitor.nextInt();
 
         if (escolhido == 1){
@@ -124,7 +124,7 @@ public class Funcionario {
     }
 
     void opcaoInvalida(){
-        System.out.println("Opção inválida!\nSelecione uma opção válida.");
+        System.out.println("\nOpção inválida!\nSelecione uma opção válida.\n");
         menu();
     }
 }
