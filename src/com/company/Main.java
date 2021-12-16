@@ -4,10 +4,10 @@ public class Main {
 
     public static void main(String[] args) {
         Funcionario a = new Funcionario();
-
         a.menu();
+        System.out.println(a.lista.nome);
 
-        }
+     }
     }
 
 

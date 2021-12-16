@@ -2,8 +2,11 @@ package com.company;
 import java.util.Scanner;
 
 public class Funcionario {
+
+
     Scanner leitor = new Scanner(System.in);
 
+    ListaFuncionarios lista;
     String nome;
     String rg;
     String dataInicio;
@@ -61,7 +64,11 @@ public class Funcionario {
         else{
             System.out.println("Nome: não informado");
         }
-        System.out.println("RG: " + this.rg);
+        if (this.rg != null){
+            System.out.println("RG: " + this.rg);}
+        else{
+            System.out.println("RG: não informado");
+        }
         System.out.println("Data de início: " + this.dataInicio);
         System.out.println("Salário(R$): " + this.salario);
         System.out.println("Taxa de bonus(%): " + this.bonificacao);
@@ -97,8 +104,8 @@ public class Funcionario {
         System.out.println("Digite a data de entrada do funcionario: ");
         dataInicio = leitor.next();
         if(dataInicio.length() > 10 || dataInicio.length() < 6){
-            dataInicio();
             System.out.println("Valor inválido para data!");
+            dataInicio();
         }
     }
 
