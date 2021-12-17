@@ -1,8 +1,8 @@
 package com.company;
+
 import java.util.Scanner;
 
 public class Funcionario {
-
 
     Scanner leitor = new Scanner(System.in);
 
@@ -75,6 +75,7 @@ public class Funcionario {
         System.out.println("Salário com bonificação(R$): " + salarioComBonificacao(this.bonificacao));
         System.out.println("Projeção do salário anual sem bonificação(R$): " + this.salarioAnual);
         System.out.println("Projeção do salário anual com bonificação de "+this.bonificacao+"(%): " + ganhoAnualComBonificacao(this.bonificacao));
+
     }
 
     void nome() {
@@ -134,4 +135,5 @@ public class Funcionario {
         System.out.println("\nOpção inválida!\nSelecione uma opção válida.\n");
         menu();
     }
+
 }
